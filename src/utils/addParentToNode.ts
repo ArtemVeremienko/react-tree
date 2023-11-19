@@ -42,30 +42,3 @@ export function logPath(node: NodeWithParent) {
   console.log(path)
 }
 
-class NodeWParent implements NodeWithParent {
-  public name: string
-  public status: CheckboxStatus
-  public collapsed: boolean
-  public children: NodeWithParent[]
-  public parent: NodeWithParent | null
-
-  constructor({
-    name,
-    children = [],
-    parent = null,
-    collapsed = false,
-    status = CHECKBOX_STATUS.UNCHECKED,
-  }: {
-    name: string
-    children: NodeWithParent[]
-    parent: NodeWithParent | null
-    collapsed: boolean
-    status: CheckboxStatus
-  }) {
-    this.name = name
-    this.children = children
-    this.parent = parent
-    this.collapsed = collapsed
-    this.status = status
-  }
-}
