@@ -1,4 +1,4 @@
-import { ID, Node } from '../configTree'
+import { ID, Node } from '../global.types'
 
 export function dfs<T extends Node>(tree: T[], id: ID): T | null {
   for (const node of tree) {

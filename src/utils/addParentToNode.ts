@@ -1,4 +1,4 @@
-import { Node } from '../configTree'
+import { Node } from '../global.types'
 import { CHECKBOX_STATUS, CheckboxStatus } from '../Checkbox'
 
 export interface NodeWithParent extends Node {
@@ -19,13 +19,10 @@ export function addParentToNode(
       parent,
       status: CHECKBOX_STATUS.UNCHECKED,
       collapsed: false,
-      children: []
+      children: [],
     }
     if (node.children) {
-      nodeWithParent.children = addParentToNode(
-        node.children,
-        nodeWithParent
-      )
+      nodeWithParent.children = addParentToNode(node.children, nodeWithParent)
     }
     return nodeWithParent
   })
@@ -41,4 +38,3 @@ export function logPath(node: NodeWithParent) {
   path.push(current)
   console.log(path)
 }
-
